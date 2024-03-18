@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
-#define ll long long
 using namespace std;
-
+ 
 int main() {
     int n,m;
     cin >> n >> m;
@@ -14,28 +13,19 @@ int main() {
     {
         cin >> b[i];
     }
-    int l=0,r=0;
-    ll ans=0;
-    while(l<n && r<m)
+    int l=0,r=0,ans=0;
+ 
+    while(r<m)
     {
-        ll cnt1=0,cnt2=0,curr=a[l];
-        while(a[l]==curr && l<n)
+        int sum=0;
+        while(a[l]<b[r] && l<n)
         {
-            cnt1++;
+            sum++;
             l++;
         }
-        while(curr>b[r] && r<m)
-        {
-            r++;
-        }
-        while(b[r]==curr && r<m)
-        {
-            cnt2++;
-            r++;
-        }
-        ans+=(cnt1*cnt2);
+        ans+=sum;
+        r++;
+        cout << ans <<" ";
     }
-    cout << ans << '\n';
-
     return 0;
 }
