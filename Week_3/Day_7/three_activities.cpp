@@ -5,29 +5,29 @@ using namespace std;
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    int t;
+    ll t;
     cin >> t;
     while(t--)
     {
-        int n;
+        ll n;
         cin >> n;
         vector<ll> v1(n),v2(n),v3(n);
-        vector<pair<ll,int>> p1,p2,p3;
+        vector<pair<ll,ll>> p1,p2,p3;
 
-        for(int i=0; i<n; i++)
+        for(ll i=0; i<n; i++)
         {
             cin >> v1[i];
             p1.push_back({v1[i],i});
         }
-        for(int i=0; i<n; i++)
+        for(ll i=0; i<n; i++)
         {
             cin >> v2[i];
             p2.push_back({v2[i],i});
         }
-        for(int i=0; i<n; i++)
+        for(ll i=0; i<n; i++)
         {
-            cin >> v2[i];
-            p3.push_back({v2[i],i});
+            cin >> v3[i];
+            p3.push_back({v3[i],i});
         }
 
         sort(v1.begin(),v1.end(),greater<int>());
@@ -36,11 +36,11 @@ int main() {
         
 
         ll ans=0;
-        for(int i=0; i<n; i++)
+        for(ll i=0; i<n; i++)
         {
-            for(int j=0; j<n; j++)
+            for(ll j=0; j<n; j++)
             {
-                for(int k=0; k<n; k++)
+                for(ll k=0; k<n; k++)
                 {
                     if(p1[i].second!=p2[j].second && p1[i].second!=p3[k].second && p2[j].second!=p3[k].second)
                     {
