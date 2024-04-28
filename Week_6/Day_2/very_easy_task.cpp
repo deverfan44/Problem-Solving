@@ -15,7 +15,7 @@ int main() {
 
         int cnt1 = mid/x;
         int cnt2 = mid/y;
-        cnt = cnt1+cnt2;
+        cnt += (cnt1+cnt2);
         if(cnt>=n) return true;
         else return false;
     };
