@@ -11,19 +11,19 @@ int main() {
         int n, k;
         cin >> n >> k;
 
-        auto ok = [&](int mid) {
+        auto check = [&](int mid) {
             return (mid - (mid / n)) >= k;
-            };
+        };
 
         int l = 1, r = 2e9, mid, ans = 0;
-        while (l <= r) {
-            mid = l + (r - l) / 2;
-            if (ok(mid)) {
+        while (l<=r) {
+            mid = l + (r-l) / 2;
+            if (check(mid)) {
                 ans = mid;
-                r = mid - 1;
+                r = mid-1;
             }
             else {
-                l = mid + 1;
+                l = mid+1;
             }
         }
         cout << ans << '\n';
