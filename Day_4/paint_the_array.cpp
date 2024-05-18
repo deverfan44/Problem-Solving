@@ -40,7 +40,7 @@ int main() {
         }
 
         if(check1 && check2) cout << 0 << endl;
-        else if(check1) cout << gcd1 << endl;
+        else if(check1==false) cout << gcd1 << endl;
         else cout << gcd2 << endl;
     }
     return 0;
