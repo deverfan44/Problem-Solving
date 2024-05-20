@@ -11,35 +11,30 @@ int main() {
     for(int i=0; i<n; i++) {
         cin >> v[i];
     }
-    vector<pair<ll,ll>> tmp;
+    vector<pair<int,int>> tmp;
     for(int i=0; i<n; i++) {
         tmp.push_back({v[i],i+1});
     }
     sort(tmp.begin(),tmp.end());
-    vector<ll> position;
-    for(int i=0; i<n; i++) {
-        if(position.size()<2) {       
-            if(tmp[i].first<=x) {
-                x -= tmp[i].first;
-                position.push_back(tmp[i].second);
+    // int cnt=0;
+    // vector<int> position;
+    for(int i=0; i<n-1; i++) {
+        int tagt = x-tmp[i].first;
+        int l = i+1;
+        int r = n-1;
+        while(l<r) {
+            int tmp_sum = tmp[l].first+tmp[r].first;
+            if(tmp_sum == tagt) {
+                cout << tmp[i].second << " " << tmp[l].second << " " << tmp[r].second << endl;
+                return 0;
             }
-        }
-        else {
-            if(tmp[i].first == x) {
-                position.push_back(tmp[i].second);
-                x -= tmp[i].first;
+            else if(tmp_sum<tagt) {
+                l++;
             }
+            else r--;
         }
-        if(position.size()==3) break;
     }
-
-    sort(position.begin(),position.end());
-    if(x==0) {
-        for(ll x: position) {
-            cout << x << " ";
-        }
-        cout << endl;
-    }
-    else cout << "IMPOSSIBLE" << endl;
+    
+    cout << "IMPOSSIBLE" << endl;
     return 0;
 }
