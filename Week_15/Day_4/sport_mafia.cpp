@@ -1,33 +1,22 @@
 #include <bits/stdc++.h>
 #define ll long long
 using namespace std;
-
+// Hints from youtube
 void solveIt() {
     ll n,k;
     cin >> n >> k;
-    ll cnt = 0;
-    ll sum=0, i=1;
-    if(n==1 && k==1) {
-        cout << 0 << endl;
-    }
-    else if(k==0) {
-        while(sum<=n) {
-            sum = sum+i;
-            cnt++;
-            i++;
+    ll l=0, h=n;
+    while(l<=h) {
+        ll e = l+(h-l)/2;
+        ll calculate = ((n-e)*(n-e+1))/2;
+        if((calculate-e) == k) {
+            cout << e << '\n';
+            return;
         }
-        cnt--;
-        ll ans = (cnt*(cnt+1))/2;
-
-        cout << ans << endl;
-    }
-    else {
-        while(sum<k) {
-            cnt++;
-            sum = sum+i;
-            i++;    
+        else if((calculate-e)<k) {
+            h = e-1;
         }
-        cout << (n-cnt) << endl;
+        else l = e+1;
     }
 }
 int main() {
